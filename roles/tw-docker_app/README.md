@@ -31,7 +31,7 @@ See default/main.yml for example. Ansible use a dict file for providing variable
     image: "clojure"
     tag: "latest"
 
-    git_repo: "repo_url_for_retrieving_confing_files"
+    git_repo: "repo_url_for_retrieving_config_files"
     config_file_path: "path_to_docker_and_env_files"
     temp_repo_path: "path_to_store_repe"
     common_path: "my_general_path"
