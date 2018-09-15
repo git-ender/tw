@@ -1,0 +1,54 @@
+---
+# Keep published/exposed_ports commented if don't wat to use it
+containers:
+  "tw_docker_static":
+    image: "clojure"
+    tag: "latest"
+    working_dir: "{{ common_path }}/front-end/public"
+    env_file_name: ""
+    exposed_ports: "8000"
+    #published_ports:
+    command: "./serve.py"
+    ipv4: "172.16.10.10"
+
+  "tw_docker_frontend":
+    image: "clojure"
+    tag: "latest"
+    working_dir: "{{ common_path }}/build"
+    env_file_name: "{{ temp_repo_path }}/envfile_frontend"
+    #exposed_ports: "8080"
+    published_ports: "8080:8080"
+    command: "java -jar front-end.jar"
+    ipv4: "172.16.10.11"
+
+  "tw_docker_quote":
+    image: "clojure"
+    tag: "latest"
+    working_dir: "{{ common_path }}/build"
+    env_file_name: "{{ temp_repo_path }}/envfile_quote"
+    exposed_ports: 8080
+    #published_ports:
+    command: "java -jar quotes.jar"
+    ipv4: "172.16.10.12"
+
+  "tw_docker_newsfeed":
+    image: "clojure"
+    tag: "latest"
+    working_dir: "{{ common_path }}/build"
+    env_file_name: "{{ temp_repo_path }}/envfile_newsfeed"
+    exposed_ports: 8080
+    # published_ports:
+    command: "java -jar newsfeed.jar"
+    ipv4: "172.16.10.13"
+
+# Network section
+network_name: "TW-Net"
+subnet_class: "172.16.10.0/28"
+
+# General vars
+image: "clojure"
+tag: "latest"
+
+config_file_path: "/./roles/{{role_name}}/files/"
+temp_repo_path: "/tmp/tw"
+common_path: "/opt/tw/infra-problem"

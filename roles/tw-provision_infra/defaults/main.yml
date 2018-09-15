@@ -1,0 +1,10 @@
+---
+keypair_name: tw-key
+instance_type: t2.micro
+security_group_VM: tw-sg-vm
+security_group_ELB: tw-sg-elb
+security_group_VPC: default
+ami_image: ami-0bdb1d6c15a40392c
+ec2_count: 2
+elb_name: tw-elb
+aws_region: eu-west-1
