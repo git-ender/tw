@@ -1,7 +1,5 @@
 # tw-docker_app
-
-This role is just and exercise. It builds a docker image from a dockefile on remote hosts and start a container from it.
-
+This role is just and exercise. It builds a docker image from a dockefile on remote hosts and start some containers from it, acconding to config files.
 
 # Requirements
 
@@ -12,23 +10,30 @@ This role is just and exercise. It builds a docker image from a dockefile on rem
 
 # Role Variables
 
-See default/main.yml for example
+See default/main.yml for example. Ansible use a dict file for providing variables for all the containters. Ansible will fail if "*_ports" variables are empty so leave them commented if you do not want to use it (see tasks for details).
 
-container: "container to be started"
-image: "use clojure for building"
-tag: "latest"
-#exposed_ports: 
-published_ports: "mapped ports on container and hosts"
-ipv4: "an ip for container, useful for future improvement"
+    containers:
+      "tw_docker_container_1":
+        image: "clojure"
+        tag: "latest"
+        working_dir: "{{ common_path }}/my_app_path"
+        env_file_name: "env_file_1"
+        exposed_ports: ""
+        published_ports: ""
+        command: "java -jar my_app_1"
+        ipv4: "x.x.x.x"
 
-# Network section
-network_name: "MyNet"
-subnet_class: "subnet, useful for future improvemen"
+    # Network section
+    network_name: "TW-Net"
+    subnet_class: "x.x.x.x/xx"
 
-# general vars
-dockerfile_path: "local path for docker file"
-remote_dockerfile_path: "remote path for docker file"
+    # General vars
+    image: "clojure"
+    tag: "latest"
 
+    config_file_path: "path_to_docker_and_env_files"
+    temp_repo_path: "path_to_store_repe"
+    common_path: "my_general_path"
 
 # Known issues
 There is some issues with Ansible 2.6.x. See https://github.com/ansible/ansible/issues/42162
