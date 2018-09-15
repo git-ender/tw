@@ -49,6 +49,7 @@ subnet_class: "172.16.10.0/28"
 image: "clojure"
 tag: "latest"
 
+git_repo: "https://github.com/git-ender/tw.git"
 config_file_path: "/./roles/{{role_name}}/files/"
 temp_repo_path: "/tmp/tw"
 common_path: "/opt/tw/infra-problem"
