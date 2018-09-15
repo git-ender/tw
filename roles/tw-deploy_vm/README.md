@@ -1,4 +1,4 @@
-# zmr-deploy_vm
+# tw-deploy_vm
 
 This role is just and exercise. It configure a group of provisioned VMs installing docker and other packages.
 
