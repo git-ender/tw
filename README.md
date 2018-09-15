@@ -22,4 +22,10 @@ Check the roles README for further details.
 
 
 The first to roles must be runned in a single playbook since they share in-memory inventory file for the provisioned instances. 
-You should add the provisioned EC2 instances to you inventory file before running the 2nd playbook. Instances could have been added to the inventory file but some more knowledge about how you manage your inventory is needed
+You should add the provisioned EC2 instances to you inventory file before running the 2nd playbook. Instances could have been added to the inventory file but some more knowledge about how you manage your inventory is needed. If you are using dynamic inventory your could run your playbook against tagged_instances
+
+  - hosts: tag_tw
+    user: ec2-user
+    roles:
+    - role: tw-docker_app
+      tags: docker_app

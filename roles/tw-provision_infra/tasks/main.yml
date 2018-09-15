@@ -46,7 +46,9 @@
     force: no
   when: aws_key.changed
 
-# It ensure that "exact_count" instances tagged "count_tag" are present. Not compatible with state: started
+
+# "exact_count" of instances matching "count_tag" to be present.
+# For some reasone exact_count in incompatible with started so a stopped instance will not start
 - name: Launch EC2 instance
   ec2:
     aws_access_key: "{{ aws_access_key }}"  
@@ -64,6 +66,7 @@
     wait: true
   register: ec2
 
+# Register for other roles
 - name: Add new instances to in-memory inventory
   add_host:
    hostname: "{{ item.public_dns_name }}"
@@ -98,6 +101,9 @@
         instance_port: 8080
     state: present
 
+# FIXME
+# This task will fail cause the web app is not yet started and there is no way to disable or reanable HC on the ELB
+# As a future improvement the task should be runned after the deployment of the web app
 - name: Add instances to ELB
   ignore_errors: yes
   ec2_elb:
