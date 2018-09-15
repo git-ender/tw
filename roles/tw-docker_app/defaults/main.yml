@@ -1,7 +1,7 @@
 ---
 # Keep published/exposed_ports commented if don't wat to use it
 containers:
-  "tw_docker_static":
+  "tw-docker-static":
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/front-end/public"
@@ -11,7 +11,7 @@ containers:
     command: "./serve.py"
     ipv4: "172.16.10.10"
 
-  "tw_docker_frontend":
+  "tw-docker-frontend":
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/build"
@@ -21,7 +21,7 @@ containers:
     command: "java -jar front-end.jar"
     ipv4: "172.16.10.11"
 
-  "tw_docker_quote":
+  "tw-docker-quote":
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/build"
@@ -31,7 +31,7 @@ containers:
     command: "java -jar quotes.jar"
     ipv4: "172.16.10.12"
 
-  "tw_docker_newsfeed":
+  "tw-docker-newsfeed":
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/build"
