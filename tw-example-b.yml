@@ -1,0 +1,5 @@
+- hosts: [tw]
+  gather_facts: False
+  roles:
+  - role: tw-docker_app
+    tags: docker_app

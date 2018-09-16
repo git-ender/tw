@@ -1,0 +1,7 @@
+- hosts: localhost
+  gather_facts: False
+  roles:
+  - role: tw-provision_infra
+    tags: provision_infra
+  - role: tw-deploy_vm
+    tags: deploy_vm
