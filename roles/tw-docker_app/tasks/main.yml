@@ -28,7 +28,6 @@
   docker_image:
     name: "{{ image }}"
     path:  "{{ temp_repo_path }}" 
-    #dockerfile: "{{ item.value.dockerfile_name }}"
     state: present
 
 - name: Start all containers
