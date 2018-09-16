@@ -34,9 +34,9 @@
   docker_container:
     name: "{{ item.key }}"
     image: "{{ item.value.image }}:{{ item.value.tag }}"
-    working_dir: "{{ item.value.working_dir}}"
-    env: "{{ item.value.env|default(omit)}}"
-    env_file: "{{ item.value.env_file_name}}"
+    working_dir: "{{ item.value.working_dir }}"
+    env: "{{ item.value.env|default(omit) }}"
+    env_file: "{{ item.value.env_file_name }}"
     exposed_ports: "{{ item.value.exposed_ports|default(omit) }}"
     published_ports: "{{ item.value.published_ports|default(omit) }}"
     command: "{{ item.value.command }}"
