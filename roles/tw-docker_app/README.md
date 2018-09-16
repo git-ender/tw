@@ -10,17 +10,18 @@ This role is just and exercise. It builds a docker image from a dockefile on rem
 
 # Role Variables
 
-See default/main.yml for example. Ansible use a dict file for providing variables for all the containters. Ansible will fail if "*_ports" variables are empty so leave them commented if you do not want to use it (see tasks for details).
+See default/main.yml for example. Ansible use a dict file for providing variables for all the containters. Ansible will fail if "*_ports" or env variables are empty so leave them commented if you do not want to use it (see tasks for details).
 
     containers:
-      "tw_docker_container_1":
+      "tw-docker_container-1":
         image: "clojure"
         tag: "latest"
         working_dir: "{{ common_path }}/my_app_path"
-        env_file_name: "env_file_1"
+        env: "my_var=value"
+        env_file_name: "env-file-1"
         exposed_ports: ""
         published_ports: ""
-        command: "java -jar my_app_1"
+        command: "java -jar my-app-1"
         ipv4: "x.x.x.x"
 
     # Network section
