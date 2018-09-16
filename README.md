@@ -1,4 +1,4 @@
-allenge
+# tw-challenge
 
 This playbook is just and exercise. It provision a simple infrastructure on AWS, then install docker and other required packages and deploy containers with a proxy and a simple test app within the EC2 instances.
 
