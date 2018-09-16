@@ -2,4 +2,3 @@ APP_PORT=8080
 STATIC_URL=http://tw-docker-static:8000
 QUOTE_SERVICE_URL=http://tw-docker-quote:8080
 NEWSFEED_SERVICE_URL=http://tw-docker-newsfeed:8080
-#NEWSFEED_SERVICE_TOKEN=T1&eWbYXNWG1w1^YGKDPxAWJ@^et^&kX

@@ -1,10 +1,11 @@
 ---
-# Keep published/exposed_ports commented if don't wat to use it
+# Keep published/exposed_portsiand env commented if don't wat to use it
 containers:
   "tw-docker-static":
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/front-end/public"
+    #env:
     env_file_name: ""
     exposed_ports: "8000"
     #published_ports:
@@ -15,6 +16,15 @@ containers:
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/build"
+    env: !vault |
+              $ANSIBLE_VAULT;1.1;AES256
+              64333561643537636632316132396563373461353862363661663335323032636336333635363332
+              3761616230616538383431396664616630666464643839360a316530343262623731646163306532
+              62613336343237373234656632656235316239663737356565333461336566623863313435383064
+              6434383437656439390a393366323134316432333137646635616233643634383838643731386238
+              66323730333465376266656131356438303530653166623334633534373237326433316632373466
+              31306465373936326139633237626637376330653864346139313438303033373032633163626134
+              373864303635663136346361646330663933
     env_file_name: "{{ temp_repo_path }}/envfile_frontend"
     #exposed_ports: "8080"
     published_ports: "8080:8080"
@@ -25,6 +35,7 @@ containers:
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/build"
+    #env:
     env_file_name: "{{ temp_repo_path }}/envfile_quote"
     exposed_ports: 8080
     #published_ports:
@@ -35,6 +46,7 @@ containers:
     image: "clojure"
     tag: "latest"
     working_dir: "{{ common_path }}/build"
+    #env:
     env_file_name: "{{ temp_repo_path }}/envfile_newsfeed"
     exposed_ports: 8080
     # published_ports:
