@@ -48,4 +48,5 @@
         ipv4_address: "{{ item.value.ipv4 }}"
         aliases:
           - "{{ item.key }}"
+  no_log: true
   with_dict: "{{ containers }}"
