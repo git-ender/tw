@@ -11,5 +11,3 @@ RUN apt -y install make python3
 
 RUN mkdir -p $app_path && cd $app_path && git clone https://github.com/ThoughtWorksInc/infra-problem.git 
 RUN cd ${app_path}/${app_name} && make libs && make clean all
-
-#CMD java -jar ${app_path}/${app_name}/build/quote.jar
